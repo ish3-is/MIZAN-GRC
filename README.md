@@ -12,6 +12,8 @@ Dark mode defaults to midnight navy with restrained violet and gold accents insp
 
 ![Arabic command center](docs/screenshots/dashboard-ar.png)
 
+Browse the [complete 26-screen bilingual portfolio gallery](docs/portfolio/SCREENSHOT_GALLERY.md), including login, governance, risk, compliance, policy, privacy, evidence, vendor, incident, continuity, audit, reporting, roles and mobile views.
+
 ## What works
 
 * Ten server-enforced roles, Argon2id password hashing, opaque sessions, CSRF header and origin checks.

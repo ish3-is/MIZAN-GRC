@@ -12,3 +12,4 @@ playwright-report/
 *.tsbuildinfo
 .ruff_cache/
 **/.taste-skill/
+.playwright-cli/
