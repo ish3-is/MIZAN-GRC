@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap");
 :root {
-  font-family: "Inter", "IBM Plex Sans Arabic", sans-serif;
+  font-family: "IBM Plex Sans Arabic", "Segoe UI", sans-serif;
   color: #263d49;
   background: #f3f6f7;
   font-synthesis: none;
@@ -130,7 +130,7 @@ p {
 }
 .shell {
   display: flex;
-  min-height: 100vh;
+  min-height: 100svh;
 }
 .sidebar {
   width: 238px;
@@ -159,10 +159,10 @@ p {
   color: #fff;
 }
 .brand small {
-  font-family: "Inter", sans-serif;
+  font-family: "IBM Plex Sans Arabic", "Segoe UI", sans-serif;
   display: block;
-  font-size: 10px;
-  letter-spacing: 3px;
+  font-size: 11px;
+  letter-spacing: 0.4px;
   color: #a9c6cb;
   font-weight: 500;
   margin-top: 4px;
@@ -196,14 +196,16 @@ p {
   font-size: 18px;
 }
 .nav-caption {
-  font-size: 10px;
+  font-size: 12px;
   color: #7d9ca9;
-  letter-spacing: 1.7px;
+  letter-spacing: 0;
   margin: 0 16px 12px;
 }
 .sidebar nav {
   display: grid;
-  gap: 5px;
+  gap: 2px;
+  overflow-y: auto;
+  min-height: 0;
 }
 .sidebar nav a {
   display: flex;
@@ -211,7 +213,7 @@ p {
   align-items: center;
   color: #9eb6c1;
   border-radius: 7px;
-  padding: 11px 13px;
+  padding: 8px 13px;
   font-size: 12px;
   font-weight: 500;
 }
@@ -318,9 +320,9 @@ main {
   background: #248b80;
   flex-shrink: 0;
 }
-.eyebrow {
-  font-size: 9px;
-  letter-spacing: 2px;
+.context-label {
+  font-size: 12px;
+  letter-spacing: 0.3px;
   color: #8b9a9d;
   font-weight: 600;
   display: block;
@@ -365,16 +367,21 @@ main {
 .metrics {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 17px;
+  gap: 0;
+  border: 1px solid #e0e7e9;
+  border-radius: 9px;
+  overflow: hidden;
+  background: #fff;
   margin-bottom: 20px;
 }
 .metric {
-  background: #fff;
-  border: 1px solid #e0e7e9;
-  border-radius: 9px;
+  background: transparent;
+  border: 0;
+  border-inline-end: 1px solid #e0e7e9;
+  border-radius: 0;
   padding: 19px 20px;
-  box-shadow: 0 2px 3px #203e4c02;
 }
+.metric:last-child { border-inline-end: 0; }
 .metric > div {
   display: flex;
   justify-content: space-between;
@@ -387,13 +394,64 @@ main {
   color: #72958e;
 }
 .metric strong {
-  font-size: 34px;
+  font-size: 30px;
   display: block;
   font-weight: 600;
   letter-spacing: -1px;
   line-height: 1.5;
   margin-top: 9px;
   color: #173643;
+}
+
+.operational-form { padding: 20px; margin-bottom: 20px; }
+.form-heading { display: flex; justify-content: space-between; gap: 16px; align-items: start; margin-bottom: 18px; }
+.form-heading p { margin: 0; font-size: 12px; }
+.operational-form > label { margin-top: 16px; }
+.operational-form > .primary { margin-top: 16px; }
+.operational-list { margin-bottom: 20px; }
+.record-count { margin-inline-start: auto; color: #697b84; font-size: 12px; font-variant-numeric: tabular-nums; }
+.row-link { display: grid; justify-content: start; text-align: start; border: 0; padding: 0; background: transparent; min-height: 0; }
+.row-link:hover { background: transparent; }
+.row-link small { margin-top: 4px; }
+.selected-row { background: #f2f5f5; }
+.record-view { margin-top: 20px; }
+.record-view .panel-heading { align-items: start; }
+.record-view .panel-heading h2 { margin-top: 6px; }
+.record-view .panel-heading p { max-width: 620px; }
+.record-summary { display: grid; grid-template-columns: repeat(4, 1fr); margin: 0 22px 20px; background: #f5f7f7; border-radius: 8px; }
+.record-summary > div { display: grid; gap: 6px; padding: 15px; border-inline-end: 1px solid #e2e7e7; }
+.record-summary > div:last-child { border-inline-end: 0; }
+.record-summary span { color: #697b84; font-size: 12px; }
+.record-summary b { font-size: 13px; }
+.record-view .record-details { margin: 0 22px 20px; }
+.transition-form { margin: 0 22px 22px; padding: 18px; background: #f5f7f7; border-radius: 8px; display: grid; grid-template-columns: minmax(180px, 0.5fr) 1fr auto; align-items: end; gap: 12px; }
+.transition-form h3 { grid-column: 1 / -1; margin-bottom: 0; }
+.transition-form textarea { min-height: 40px; height: 40px; }
+.settings-section { display: grid; grid-template-columns: minmax(250px, 0.65fr) minmax(0, 1fr); gap: 32px; padding: 28px 0; }
+.settings-section + .settings-section { border-top: 1px solid #e2e7e7; }
+.settings-section > div { padding-top: 8px; }
+.settings-section > div p { max-width: 420px; font-size: 13px; }
+
+:root[data-theme="dark"] .metrics { background: var(--surface); border-color: transparent; }
+:root[data-theme="dark"] .metric { background: transparent; border-color: #2a2b2f; }
+:root[data-theme="dark"] .record-summary,
+:root[data-theme="dark"] .transition-form { background: #202125; }
+:root[data-theme="dark"] .record-summary > div,
+:root[data-theme="dark"] .settings-section + .settings-section { border-color: #2f3034; }
+:root[data-theme="dark"] .row-link { background: transparent; border-color: transparent; }
+
+@media (max-width: 950px) {
+  .record-summary { grid-template-columns: repeat(2, 1fr); }
+  .transition-form { grid-template-columns: 1fr; }
+  .settings-section { grid-template-columns: 1fr; gap: 12px; }
+}
+@media (max-width: 600px) {
+  .record-summary { grid-template-columns: 1fr; }
+  .record-summary > div { border-inline-end: 0; border-bottom: 1px solid #e2e7e7; }
+  .record-summary > div:last-child { border-bottom: 0; }
+  .metrics { grid-template-columns: repeat(2, 1fr); }
+  .metric:nth-child(2) { border-inline-end: 0; }
+  .metric:nth-child(-n+2) { border-bottom: 1px solid #e0e7e9; }
 }
 .metric small {
   font-size: 10px;
@@ -408,7 +466,6 @@ main {
   border-radius: 9px;
   background: white;
   overflow: hidden;
-  box-shadow: 0 2px 4px #1c465004;
 }
 .panel-heading {
   padding: 21px 22px 13px;
@@ -440,7 +497,8 @@ main {
   gap: 34px;
 }
 .ring {
-  background: conic-gradient(#287d76 var(--progress), #e8efef 0);
+  background: #e8efef;
+  border: 5px solid #287d76;
   width: 138px;
   height: 138px;
   border-radius: 50%;
@@ -925,7 +983,6 @@ td details p {
   z-index: 100;
   display: flex;
   justify-content: flex-end;
-  backdrop-filter: blur(2px);
 }
 .drawer {
   width: 560px;
@@ -934,7 +991,6 @@ td details p {
   background: #fff;
   overflow: auto;
   padding: 27px 30px;
-  box-shadow: 0 0 50px #07212b33;
 }
 .drawer-head {
   display: flex;
@@ -1075,12 +1131,12 @@ td details p {
   font-size: 12px;
 }
 .center {
-  min-height: 100vh;
+  min-height: 100svh;
   display: grid;
   place-items: center;
 }
 .login {
-  min-height: 100vh;
+  min-height: 100svh;
   display: grid;
   grid-template-columns: 1fr 1fr;
   background: #fff;
@@ -1092,17 +1148,18 @@ td details p {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: center;
 }
 .login .brand {
   padding: 0;
-  margin-bottom: 90px;
+  margin-bottom: 42px;
 }
-.login section .eyebrow {
+.login section .context-label {
   color: #8cb5b5;
 }
 .login h1 {
   font-family: "IBM Plex Sans Arabic";
-  font-size: 50px;
+  font-size: 32px;
   color: #f0f5f4;
   font-weight: 500;
   line-height: 1.6;
@@ -1114,7 +1171,7 @@ td details p {
   color: #91b1bb;
 }
 .login-note {
-  margin-top: auto;
+  margin-top: 42px;
   border-top: 1px solid #ffffff22;
   padding-top: 30px;
   color: #8da8b1;
@@ -1150,7 +1207,7 @@ td details p {
   margin-top: 10px;
 }
 .login .muted {
-  font-size: 10px;
+  font-size: 12px;
   margin-top: 25px;
   color: #8d9da2;
 }
@@ -1243,7 +1300,7 @@ td details p {
     padding: 40px;
   }
   .login h1 {
-    font-size: 37px;
+    font-size: 30px;
   }
   .inline-form {
     flex-wrap: wrap;
@@ -1409,7 +1466,6 @@ td details p {
   }
   .report-preview {
     border: 0;
-    box-shadow: none;
   }
   .report-preview pre {
     max-height: none;

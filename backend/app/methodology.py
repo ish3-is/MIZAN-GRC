@@ -15,11 +15,11 @@ def risk_score(likelihood: int, impact: int):
     return {
         "score": score,
         "band": "Critical"
-        if score >= 20
+        if score >= 17
         else "High"
-        if score >= 12
+        if score >= 10
         else "Moderate"
-        if score >= 6
+        if score >= 5
         else "Low",
     }
 

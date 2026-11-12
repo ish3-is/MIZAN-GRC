@@ -155,7 +155,7 @@ def test_complete_vertical_slice(client):
     )
     report = client.get("/api/reports/management").json()
     assert any(f["id"] == id and f["state"] == "Closed" for f in report["findings"])
-    assert report["summary"]["risks"] == 41
+    assert report["summary"]["risks"] == 19
     assert report["evidence_manifest"][-1]["sha256"]
     assert client.get("/api/activity/verify").json()["valid"] is True
 
@@ -261,12 +261,12 @@ def test_separation_of_duties_and_tamper_detection(client):
 def test_seed_totals_and_formula_bounds(client):
     login(client)
     d = client.get("/api/dashboard").json()
-    assert (d["risks"], d["assets"], d["compliance"]["eligible"]) == (40, 25, 5)
+    assert (d["risks"], d["assets"], d["compliance"]["eligible"]) == (18, 25, 30)
     assert d["compliance"]["score"] == 0
     assert d["compliance"]["verified"] == 0
     assert d["compliance"]["evidence_coverage"] == 0
-    assert len(client.get("/api/records/vendor").json()) == 10
-    assert len(client.get("/api/records/department").json()) == 5
+    assert len(client.get("/api/records/vendor").json()) == 5
+    assert len(client.get("/api/records/department").json()) == 8
     for l in range(1, 6):
         for i in range(1, 6):
             assert risk_score(l, i)["score"] == l * i
@@ -280,7 +280,7 @@ def test_na_exclusion_requires_approval(client):
     login(client)
     a = client.get("/api/assessments").json()[0]
     edit(client, a, "Not Applicable")
-    assert client.get("/api/dashboard").json()["compliance"]["eligible"] == 5
+    assert client.get("/api/dashboard").json()["compliance"]["eligible"] == 30
     client.post(f"/api/assessments/{a['id']}/submit")
     login(client, "auditor")
     assert (
@@ -293,7 +293,7 @@ def test_na_exclusion_requires_approval(client):
         ).status_code
         == 200
     )
-    assert client.get("/api/dashboard").json()["compliance"]["eligible"] == 4
+    assert client.get("/api/dashboard").json()["compliance"]["eligible"] == 29
 
 
 def test_evidence_tampering_blocks_download(client):

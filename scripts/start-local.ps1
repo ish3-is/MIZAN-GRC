@@ -6,7 +6,7 @@ $checkUrl = if ($Service -eq 'backend') { 'http://127.0.0.1:8000/api/health' } e
 if (Get-NetTCPConnection -State Listen -LocalPort $servicePort -ErrorAction SilentlyContinue) {
     try {
         $existing = Invoke-WebRequest -Uri $checkUrl -TimeoutSec 5
-        $isMizan = if ($Service -eq 'backend') { ($existing.Content | ConvertFrom-Json).version -eq '0.1.0' } else { $existing.Content -match 'MIZAN' }
+        $isMizan = if ($Service -eq 'backend') { ($existing.Content | ConvertFrom-Json).version -match '^0\.[12]\.' } else { $existing.Content -match 'MIZAN' }
         if (-not $isMizan) { throw 'Another application is using this port.' }
     } catch { throw "Port $servicePort is already occupied. $($_.Exception.Message)" }
     Write-Host "MIZAN $Service is already running: $checkUrl"

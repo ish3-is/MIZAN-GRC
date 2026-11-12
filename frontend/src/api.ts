@@ -64,6 +64,28 @@ export type Evidence = {
   review_due: string;
 };
 export type User = { id: number; username: string; role: string };
+export type WorkItem = {
+  id: number;
+  uid: string;
+  domain: string;
+  record_type: string;
+  title_ar: string;
+  title_en: string;
+  status: string;
+  owner_id: number;
+  owner: string;
+  reviewer_id: number | null;
+  reviewer: string | null;
+  approver_id: number | null;
+  approver: string | null;
+  due_date: string | null;
+  payload: Record<string, unknown>;
+  simulated: boolean;
+  simulation_label: string | null;
+  version: number;
+  updated_at: string;
+  approvals: Record<string, unknown>[];
+};
 export type Dashboard = {
   compliance: {
     eligible: number;
@@ -74,10 +96,26 @@ export type Dashboard = {
     method: string;
   };
   risks: number;
+  critical_risks: number;
+  high_risks: number;
   assets: number;
   open_findings: number;
   overdue: number;
   stale_evidence: number;
+  open_gaps: number;
+  overdue_remediation: number;
+  control_status: Record<string, number>;
+  policy_status: Record<string, number>;
+  policy_acknowledgement: {
+    acknowledged: number;
+    assigned: number;
+    rate: number | null;
+  };
+  vendor_risk_distribution: Record<string, number>;
+  privacy_status: Record<string, number>;
+  incident_status: Record<string, number>;
+  treatment_progress: { closed: number; total: number };
+  kpi_definitions: Record<string, string>;
   heatmap: {
     id: number;
     likelihood: number;

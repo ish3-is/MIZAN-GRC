@@ -17,7 +17,7 @@ class Login(BaseModel):
 @app.get("/api/health")
 def health(s=Depends(db)):
     s.execute(select(func.count(User.id)))
-    return {"status": "ok", "version": "0.1.0", "deployment": "single-organization"}
+    return {"status": "ok", "version": "0.2.0", "deployment": "single-organization"}
 
 
 @app.post("/api/login")
@@ -80,3 +80,30 @@ def users(user=Depends(actor), s=Depends(db)):
         {"id": u.id, "username": u.username, "role": u.role}
         for u in s.scalars(select(User))
     ]
+
+
+class RoleUpdate(BaseModel):
+    role: str
+
+
+@app.put("/api/users/{id}/role")
+def update_role(id: int, data: RoleUpdate, user=Depends(actor), s=Depends(db)):
+    from .core import READERS, fetch, permit
+
+    permit(user, {"Super Admin"})
+    if data.role not in READERS:
+        raise HTTPException(422, "Unknown role")
+    target = fetch(s, User, id)
+    if target.id == user.id:
+        raise HTTPException(409, "Use a second administrator to change your own role")
+    previous = target.role
+    target.role = data.role
+    activity(
+        s,
+        user,
+        "identity.role_changed",
+        target.username,
+        {"from": previous, "to": data.role},
+    )
+    s.commit()
+    return {"id": target.id, "username": target.username, "role": target.role}

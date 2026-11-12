@@ -23,14 +23,22 @@ attempts = defaultdict(list)
 READERS = {
     "Super Admin",
     "GRC Manager",
+    "GRC Analyst",
     "Compliance Officer",
     "Risk Manager",
+    "Risk Owner",
     "Privacy Officer",
     "Control Owner",
     "Internal Auditor",
     "Executive Viewer",
 }
-EDITORS = {"Super Admin", "GRC Manager", "Compliance Officer", "Control Owner"}
+EDITORS = {
+    "Super Admin",
+    "GRC Manager",
+    "GRC Analyst",
+    "Compliance Officer",
+    "Control Owner",
+}
 REVIEWERS = {"GRC Manager", "Internal Auditor"}
 
 
@@ -45,7 +53,7 @@ async def lifespan(app):
 
 app = FastAPI(
     title="MIZAN GRC",
-    version="0.1.0",
+    version="0.2.0",
     lifespan=lifespan,
     description="Single organization research demonstrator. Compliance management, not certification or legal advice.",
 )

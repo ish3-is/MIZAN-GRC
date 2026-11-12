@@ -18,7 +18,7 @@ test("Arabic dashboard, persisted assessment, independent review and responsive 
     page.getByRole("heading", { name: "مركز قيادة الحوكمة" }),
   ).toBeVisible();
   await expect(page.locator("html")).toHaveAttribute("dir", "rtl");
-  await expect(page.locator(".metric strong").nth(1)).toHaveText("40");
+  await expect(page.locator(".metric strong").first()).toHaveText("18");
   await page.screenshot({
     path: "../docs/screenshots/dashboard-ar.png",
     fullPage: true,
@@ -30,6 +30,15 @@ test("Arabic dashboard, persisted assessment, independent review and responsive 
   await expect(page.locator("html")).toHaveAttribute("dir", "ltr");
   await page.screenshot({
     path: "../docs/screenshots/dashboard-en.png",
+    fullPage: true,
+  });
+  await page.locator('nav a[href="/policies"]').click();
+  await expect(page.getByRole("heading", { name: "Policy center" })).toBeVisible();
+  await expect(page.locator("tbody tr")).toHaveCount(16);
+  await page.locator("tbody tr").first().click();
+  await expect(page.locator(".record-view")).toContainText("NAM-POL-001");
+  await page.screenshot({
+    path: "../docs/screenshots/policy-lifecycle-en.png",
     fullPage: true,
   });
   await page.locator('nav a[href="/assessments"]').click();

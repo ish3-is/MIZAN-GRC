@@ -8,6 +8,7 @@ from . import (
     remediation,
     audit,
     reporting,
+    operations,
 )  # noqa: F401
 
 __all__ = [
@@ -20,4 +21,5 @@ __all__ = [
     "remediation",
     "audit",
     "reporting",
+    "operations",
 ]
