@@ -1,0 +1,89 @@
+export async function api<T = unknown>(
+  path: string,
+  method = "GET",
+  data?: unknown,
+): Promise<T> {
+  const form = data instanceof FormData;
+  const response = await fetch("/api" + path, {
+    method,
+    credentials: "same-origin",
+    headers: {
+      "X-Mizan-Request": "1",
+      ...(!form && data ? { "Content-Type": "application/json" } : {}),
+    },
+    body: data ? (form ? data : JSON.stringify(data)) : undefined,
+  });
+  if (!response.ok) {
+    const body = await response
+      .json()
+      .catch(() => ({ detail: "Request failed" }));
+    throw new Error(
+      typeof body.detail === "string"
+        ? body.detail
+        : JSON.stringify(body.detail),
+    );
+  }
+  return response.json();
+}
+export type DomainRecord = {
+  id: number;
+  kind: string;
+  title: string;
+  department: string;
+  version: number;
+  payload: Record<string, unknown>;
+};
+export type Assessment = {
+  id: number;
+  control_id: number;
+  asset_id: number;
+  owner_id: number;
+  reviewer_id: number | null;
+  status: string;
+  stage: string;
+  rationale: string;
+  period: string;
+  version: number;
+};
+export type Finding = {
+  id: number;
+  assessment_id: number;
+  risk_id: number;
+  title: string;
+  action: string;
+  owner_id: number;
+  due: string;
+  state: string;
+};
+export type Evidence = {
+  id: number;
+  assessment_id: number;
+  filename: string;
+  sha256: string;
+  created: string;
+  review_due: string;
+};
+export type User = { id: number; username: string; role: string };
+export type Dashboard = {
+  compliance: {
+    eligible: number;
+    score: number | null;
+    coverage: number | null;
+    verified: number | null;
+    evidence_coverage: number | null;
+    method: string;
+  };
+  risks: number;
+  assets: number;
+  open_findings: number;
+  overdue: number;
+  stale_evidence: number;
+  heatmap: {
+    id: number;
+    likelihood: number;
+    impact: number;
+    score: number;
+    band: string;
+  }[];
+  timestamp: string;
+};
