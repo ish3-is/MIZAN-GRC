@@ -1,6 +1,6 @@
 # Synthetic Saudi investigation case
 
-Mizan Services is a fictional private services organization. Five departments support 25 information assets and 10 suppliers. No real organization, employee, customer or incident is represented. The 40 seeded risks are illustrative analyst scenarios without independently substantiated effectiveness claims.
+Namaa Digital Solutions / نماء للحلول الرقمية is a fictional Saudi technology and digital-services organization. Eight departments support 25 information assets and five suppliers. A 20-record fictional employee sample represents the 150-person organization profile. No real organization, employee, customer or incident is represented. The 18 seeded risks are illustrative analyst scenarios without independently substantiated effectiveness claims.
 
 ## Discovery
 
@@ -16,7 +16,7 @@ A discovery exercise identifies a sensitive employee dataset in the Technology s
 6. Auditor verifies the initial gap conclusion. Owner documents corrective work, reopens the assessment, attaches a fresh synthetic approved classification sample, and submits a Compliant rating for retest.
 7. Independent auditor inspects content and scope, approves the new conclusion, and closes the Ready for Retest finding. Generate a scoped report and audit ZIP.
 
-The API regression `test_complete_vertical_slice` executes the assessment, evidence, risk, finding, remediation, reassessment, independent retest and report chain. The discovery and PDPL applicability steps are documented analysis tasks on read-only baseline records, not implemented legal-decision workflows.
+The API regression `test_complete_vertical_slice` executes the assessment, evidence, risk, finding, remediation, reassessment, independent retest and report chain. Additional tests exercise operational record lifecycles, policy counts, calculated KPIs, risk bands, separation of duties and the evidence requirement for remediation closure. Privacy records are editable workflows, while legal-basis and statutory-deadline decisions remain flagged for specialist review rather than automated conclusions.
 
 ## Executive findings at clean seed
 

@@ -1,6 +1,6 @@
 # Regulatory source plan and mapping methodology
 
-Verification date: 2026-10-18, Asia/Riyadh. Canonical machine-readable register: `regulatory/sources.json`.
+Verification date: 2026-11-12, Asia/Riyadh. Canonical machine-readable register: `regulatory/sources.json`.
 
 ## Phase 0 plan
 
@@ -12,12 +12,14 @@ Gather official Saudi sources first; inspect source version and exact references
 |---|---|---|
 | NCA ECC 2:2024 | Official English PDF inspected; official Arabic PDF located | Five exact references checked; English-reference verification only; Arabic specialist review pending |
 | NCA ECC implementation guide | Official guide URL identified | UNVERIFIED; no guide-derived requirements |
-| SDAIA PDPL | Official portal reached | UNVERIFIED at article level; no statutory timers |
+| SDAIA PDPL | Official law page and public English PDF reached | SOURCE_ACCESSED at document level; no article-level obligations or statutory timers activated |
 | PDPL implementing regulation | Official source located; partial portal material accessible | UNVERIFIED at article level |
-| Transfers outside Kingdom regulation | Official portal and PDF located | UNVERIFIED at article level; no transfer validity inference |
+| Transfers outside Kingdom regulation | Official current portal text reached | SOURCE_ACCESSED at document level; no transfer validity inference |
 | NDMO policy collection | Historical official document located | Currency and supersession UNVERIFIED |
 | ISO/IEC 27701:2025 | Official ISO catalogue confirms edition 2 | Metadata verified; no licensed clauses copied |
-| ISO 27001:2022, ISO 31000:2018, COBIT 2019 | Not reviewed for this build | Excluded from catalogue and scoring |
+| ISO/IEC 27001:2022 and ISO/IEC 27002:2022 | Official ISO catalogue metadata reached | Metadata verified; no licensed clauses copied or scored |
+| NCA CSCC 1:2019 | Official NCA page reached | Source accessed; inactive unless critical-system applicability is documented |
+| ISO 31000:2018 and COBIT 2019 | Not reviewed for this build | Excluded from catalogue and scoring |
 | NIST CSF 2.0 | Not reviewed for this build | Deferred; no invented mappings |
 
 ECC starter IDs: `1-3-1`, `1-5-1`, `2-1-1`, `2-1-5`, `2.2.3.5`. The English PDF uses dotted sub-control IDs for the latter. Display the exact observed ID rather than silently rewriting it. English PDF page indices are stored with each record. Implementation advice and requested evidence are MIZAN organizational interpretations, not quoted regulator instructions. Arabic text governs meaning according to the official English document disclaimer.
@@ -44,7 +46,7 @@ The demonstration entity is synthetic and private. It has no documented critical
 5. Obtain an independent specialist review of meaning, applicability, licensing and date rules. Capture reviewer/date and rationale in a source-review document.
 6. Review the Git diff, run provenance checks and workflow tests, merge only approved material; reassess affected controls. UNVERIFIED records remain excluded from legal assertions.
 
-The register is version-controlled. Automated source ingestion, in-app source approval, regulatory change impact calculation and GitHub approval enforcement are planned, not implemented. A Git reviewer must enforce this workflow manually for v0.1.
+The register is version-controlled and can be synchronized to the local demonstration with `scripts/sync-sources.py`. Automated source ingestion, in-app source approval, regulatory change impact calculation and GitHub approval enforcement are planned, not implemented. A Git reviewer must enforce this workflow manually for v0.2.
 
 ## Cross-framework mapping policy
 
@@ -59,6 +61,9 @@ Official references:
 * [SDAIA regulations index](https://sdaia.gov.sa/en/SDAIA/about/Pages/RegulationsAndPolicies.aspx)
 * [Historical NDMO policies](https://sdaia.gov.sa/ndmo/Files/PoliciesEn001.pdf)
 * [ISO/IEC 27701 catalogue](https://www.iso.org/standard/27701)
+* [ISO/IEC 27001 catalogue](https://www.iso.org/standard/27001)
+* [ISO/IEC 27002 catalogue](https://www.iso.org/standard/75652.html)
+* [NCA CSCC official page](https://nca.gov.sa/en/regulatory-documents/controls-list/cscc/)
 
 ## حدود الاستخدام
 

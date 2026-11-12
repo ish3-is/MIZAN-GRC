@@ -1,10 +1,10 @@
 # System requirements and acceptance baseline
 
-Release 0.1 is an initial functional vertical slice. Requirements labelled planned are not delivered features.
+Release 0.2 extends the tested vertical slice with connected operational-domain workflows. Requirements labelled planned are not delivered features.
 
 | ID | Requirement | State | Verification |
 |---|---|---|---|
-| AUTH-01 | Local generated credentials, eight roles, Argon2id, server sessions | Implemented | Backend auth tests |
+| AUTH-01 | Local generated credentials, ten roles, Argon2id, server sessions | Implemented | Backend auth tests |
 | AUTH-02 | Independent assessment review and risk acceptance | Implemented | Review checks tested; acceptance regression added |
 | REG-01 | Mandatory provenance on seeded source/control documents | Implemented | Register validator |
 | REG-02 | Full verified PDPL article catalogue and deadline rules | Planned | Disabled; specialist review needed |
@@ -20,15 +20,19 @@ Release 0.1 is an initial functional vertical slice. Requirements labelled plann
 | EVD-01 | Authenticated encrypted evidence and integrity checking | Implemented | Ciphertext and tamper tests |
 | EVD-02 | Evidence version comparison, antivirus and retention deletion | Planned | Uploads are append-only evidence rows; no scanning |
 | AUD-01 | Chained event log and validation | Implemented | Tamper test; admin rewrite caveat |
-| AUD-02 | Audit plan/procedures/sampling/working-paper module | Planned | Review rationale is not a complete audit workpaper system |
-| GOV-01 | Policy/department/configuration registry | Implemented read-only baseline | UI and seed |
-| GOV-02 | Committees, RACI, policy approval and acknowledgments | Planned | Explicitly labelled in UI |
-| PRV-01 | Synthetic RoPA/discovery inventory | Implemented read-only baseline | UI and seed |
-| PRV-02 | Operational PIA, rights, breach, transfer and retention workflows | Planned | No statutory deadlines activated |
+| AUD-02 | Audit exercises with scope, procedures, sampling and lifecycle | Partial | Two operational exercises; dedicated working-paper editor remains planned |
+| GOV-01 | Charter, context, scope, RACI, calendar and management review | Implemented | Operational records, bilingual docs and lifecycle tests |
+| GOV-02 | Sixteen policy lifecycles, approvals and acknowledgements | Implemented | Seed counts, UI actions and separation-of-duties tests |
+| PRV-01 | Eight synthetic processing activities / RoPA records | Implemented | Operational UI, seed and count tests |
+| PRV-02 | PIA, rights, breach, transfer and retention workflows | Partial | Generic operational workflow; no unverified statutory deadlines or legal conclusions |
+| TPR-01 | Five supplier assessments, due diligence and contract/DPA tracking | Implemented simulation | Operational UI and seed tests |
+| INC-01 | Three incident records and connected compromised-account scenario | Implemented simulation | Relationship edges and scenario documentation |
+| BCM-01 | Three critical services with RTO/RPO and exercise results | Implemented simulation | Operational UI and seed tests |
+| TRN-01 | Training campaign and policy acknowledgement sample | Implemented simulation | Calculated dashboard rate and acknowledgement API |
 | RPT-01 | Scoped JSON management report, UTF-8 CSV and audit ZIP | Implemented | Report and manifest tests |
 | RPT-02 | Polished Arabic PDF generation | Planned | Browser print is available, not a validated reporting engine |
 | UX-01 | Arabic RTL/English LTR, responsive navigation and dense workspaces | Implemented | Chromium desktop/mobile flow + screenshots |
-| UX-02 | Full Arabic data translations and WCAG audit | Partial/planned | UI chrome translated; synthetic record titles and statuses often English |
+| UX-02 | Full Arabic data translations and WCAG audit | Partial | Bilingual titles and RTL/LTR implemented; formal WCAG audit remains planned |
 | OPS-01 | Compose, migrations, health checks and seed | Implemented | SQLite migration locally; Docker/Postgres runtime pending |
 | OPS-02 | Scheduled alerts, backups tested, load/performance testing | Planned | Request-time overdue/freshness only; backup guidance documented |
 

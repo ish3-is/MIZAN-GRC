@@ -9,7 +9,6 @@ from .core import app, db, actor, activity, encode, fetch, permit
 from .db import (
     Approval,
     PolicyAcknowledgement,
-    Record,
     Relationship,
     User,
     WorkItem,

@@ -1,5 +1,23 @@
 # Executed verification record
 
+## Namaa operating-system release — 12 November 2026
+
+Executed against the deterministic Namaa Digital Solutions seed:
+
+| Check | Actual result |
+|---|---|
+| `python -m pytest backend/tests -q` | **17 passed**, one upstream Starlette deprecation warning |
+| `python scripts/verify-register.py` | **10** source records passed structural and publisher-host validation; legal meaning/currency is not implied |
+| `npm test -- --run` | **1 test file, 2 tests passed** |
+| `npm run build` | TypeScript and Vite production build succeeded; 2,223 modules transformed |
+| `npm run test:e2e` | **1 Playwright scenario passed** in Chromium: Arabic login, RTL/LTR switch, 16-policy list/detail, assessment, encrypted evidence, submission, independent review and 390px viewport |
+| UI source lint | **0 failures, 1 prose warning** |
+| Production visual inspection | **0 failures, 2 warnings** at 1440/768/390: deliberate two-panel login rest area and a text-density advisory |
+
+Screenshots were regenerated from the running application, including `dashboard-en.png`, `dashboard-ar.png`, `mobile-en.png`, `assessments-en.png`, `review-en.png` and `policy-lifecycle-en.png`.
+
+The local pre-upgrade SQLite demonstration was moved to `data/backups/mizan-pre-namaa-v02.db`; it is ignored by Git and recoverable. Existing evidence files were not deleted.
+
 ## Local login address correction
 
 Corrected the local Origin allowlist for localhost/127.0.0.1 on explicit development ports; configured deployment origins still override it. Unauthorized origins now receive a structured error. Strict Vite port and existing-service detection prevent accidental duplicate startup. Executed backend suite: **12 passed**, one upstream deprecation warning. Actual Chromium login at `http://127.0.0.1:5173/` passed. Both startup commands correctly detected existing services.

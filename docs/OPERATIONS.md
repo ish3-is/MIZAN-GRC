@@ -52,6 +52,14 @@ Browser tests need both native services and a clean seeded database. They mutate
 
 ## Seed reset
 
+For the local **MIZAN DEMO — NAMAA DIGITAL SOLUTIONS** database only:
+
+```powershell
+./.venv/Scripts/python scripts/reset-demo.py --confirm "RESET MIZAN DEMO"
+```
+
+The command refuses an unidentified database or any non-simulated work item, creates a timestamped database backup under ignored `data/backups`, then recreates the schema and deterministic seed. It preserves `.env` and evidence files. Stop the backend before running it. This is not a production reset mechanism.
+
 Seeding is deterministic in identifiers, counts and scenario ratings. Password hashes and uploaded content metadata intentionally vary. Seed is idempotent once a user exists; it does not overwrite work. Do not call a test reset against valuable data.
 
 For a fresh demonstration, stop services and archive the local `mizan.db` and `data/evidence` together, then rerun the native startup. Keep `.env` alongside encrypted backups; never rotate the evidence key without re-encryption. A destructive automated reset button is intentionally not exposed. Docker reset can be done only after backup using `docker compose down --volumes`; this irreversibly deletes database/evidence volumes. The command is guidance, not something run by this delivery.

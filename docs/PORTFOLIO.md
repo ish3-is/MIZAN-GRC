@@ -11,7 +11,7 @@ Saudi-first Arabic/English GRC demonstrator: source-traceable ECC assessments, e
 **MIZAN GRC — Saudi GRC portfolio platform | React, TypeScript, FastAPI, SQLAlchemy, Alembic**
 
 * Built a persisted assessment-to-remediation workflow with eight API-enforced roles, independent review, encrypted evidence, SHA-256 integrity checks and a tamper-evident audit chain.
-* Modelled a synthetic organization with 5 departments, 25 information assets, 40 risk scenarios and 10 vendors; documented five selected official NCA ECC references with provenance and applicability caveats.
+* Modelled Namaa Digital Solutions as a synthetic 8-department Saudi technology organization with 25 information assets, 18 risk scenarios, 30 controls, 16 operationalized policies and 5 vendors; documented ten official-source records with provenance and applicability caveats.
 * Implemented Arabic RTL/English LTR workspaces, disclosed ordinal risk/compliance scoring, scoped management/CSV/audit-pack exports, and automated backend, frontend and browser verification; see repository verification record for executed results.
 
 Do not change “selected references” to “full ECC implementation.” RoPA and policy baseline registries are not operational PDPL or governance workflows.
@@ -41,11 +41,11 @@ Do not change “selected references” to “full ECC implementation.” RoPA a
 
 I built MIZAN GRC, a Saudi-first Arabic/English portfolio application focused on a practical question: can an analyst trace a control assessment through evidence, risk, remediation and independent review?
 
-The first release includes a persisted workflow, eight server-enforced roles, encrypted evidence with integrity checks, a tamper-evident activity chain and scoped audit exports. Its synthetic organization has five departments, 25 information assets, 40 risk scenarios and 10 vendors.
+The v0.2 release includes persisted operational workflows, ten server-enforced roles, encrypted evidence with integrity checks, a tamper-evident activity chain and scoped audit exports. Its synthetic organization has eight departments, 25 information assets, 18 risk scenarios, 30 controls, 16 policies and five vendors.
 
 Regulatory traceability was a design constraint. Selected NCA ECC references link to official sources; unverified PDPL article mappings and deadlines remain disabled. I documented the risk/scoring methods and the limits of internal assessment.
 
-This is an initial demonstrator, not a compliance certification or a production-ready platform. Operational privacy workflows and policy approvals remain planned. The repository includes the executed verification record, architecture and an interview walkthrough.
+This is a portfolio simulation, not a compliance certification or production-ready platform. Operational privacy and policy lifecycles are implemented, while legal conclusions, statutory timers, full licensed framework catalogues, native Arabic PDF/Excel and production identity/infrastructure remain explicitly out of scope. The repository includes the executed verification record, architecture and an interview walkthrough.
 
 Repository: add the actual public URL after publication.
 

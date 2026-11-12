@@ -1,0 +1,18 @@
+# Namaa policy library
+
+- [NAM-POL-001-information-security](NAM-POL-001-information-security.md)
+- [NAM-POL-002-access-control](NAM-POL-002-access-control.md)
+- [NAM-POL-003-information-classification-and-handling](NAM-POL-003-information-classification-and-handling.md)
+- [NAM-POL-004-identity-and-authentication](NAM-POL-004-identity-and-authentication.md)
+- [NAM-POL-005-acceptable-use](NAM-POL-005-acceptable-use.md)
+- [NAM-POL-006-asset-management](NAM-POL-006-asset-management.md)
+- [NAM-POL-007-vulnerability-and-patch-management](NAM-POL-007-vulnerability-and-patch-management.md)
+- [NAM-POL-008-incident-response](NAM-POL-008-incident-response.md)
+- [NAM-POL-009-business-continuity-and-backup](NAM-POL-009-business-continuity-and-backup.md)
+- [NAM-POL-010-change-management](NAM-POL-010-change-management.md)
+- [NAM-POL-011-third-party-and-vendor-security](NAM-POL-011-third-party-and-vendor-security.md)
+- [NAM-POL-012-risk-management](NAM-POL-012-risk-management.md)
+- [NAM-POL-013-data-protection-and-privacy](NAM-POL-013-data-protection-and-privacy.md)
+- [NAM-POL-014-data-retention-and-disposal](NAM-POL-014-data-retention-and-disposal.md)
+- [NAM-POL-015-remote-access](NAM-POL-015-remote-access.md)
+- [NAM-POL-016-logging-and-monitoring](NAM-POL-016-logging-and-monitoring.md)

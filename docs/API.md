@@ -1,5 +1,21 @@
 # API contract
 
+## Operational-domain API (v0.2)
+
+| Method | Path | Purpose |
+|---|---|---|
+| GET | `/api/work-items?domain=&status=&q=` | Search versioned governance, policy, privacy, vendor, incident, continuity, training, audit, gap, remediation and evidence-metadata records |
+| POST | `/api/work-items` | Create a simulated operational record with owner, reviewer and approver separation |
+| GET / PUT | `/api/work-items/{id}` | Read or update a version-checked record |
+| POST | `/api/work-items/{id}/transition` | Apply a validated lifecycle transition with rationale and approval history |
+| GET / POST | `/api/relationships` | Read or create reviewed cross-domain traceability edges |
+| GET | `/api/policies/effectiveness` | Report document, approval, publication, acknowledgement, procedure, operation, evidence and independent-test states separately |
+| GET | `/api/policy-acknowledgements` | List the representative acknowledgement sample |
+| POST | `/api/policy-acknowledgements/{id}/acknowledge` | Record an attributable policy acknowledgement |
+| PUT | `/api/users/{id}/role` | Super Admin role assignment; self-role change is blocked |
+
+Every mutation requires the authenticated HttpOnly session and `X-Mizan-Request: 1`. Approval/closure transitions are enforced on the server and reject owner or reviewer self-approval. Operational records use optimistic version checks. Domain-specific payloads remain JSON in v0.2; production specialization and generated response schemas remain follow-up work.
+
 FastAPI produces the live contract at `/openapi.json` and interactive `/docs`. A generated snapshot accompanies this release. No API token is embedded in the frontend.
 
 Authentication: POST `/api/login` with username/password; HttpOnly cookie `mizan_session`. Mutations require `X-Mizan-Request: 1`, and browser Origin must match configured APP_ORIGIN. Eight-hour session. Use same-origin proxy. JSON errors have `detail`; access errors 401/403, workflow/version conflicts 409, validation 422. Upload oversize 413, rate limit 429. Domain routes authorize users before mutations.

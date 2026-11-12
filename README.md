@@ -8,13 +8,13 @@ Dark mode defaults to midnight navy with restrained violet and gold accents insp
 
 منصة تجريبية مهنية لإدارة الحوكمة والمخاطر والامتثال والخصوصية، بواجهة عربية واتجاه RTL، وسير تقييم محفوظ وقابل للتدقيق. جميع بيانات المنشأة اصطناعية.
 
-**Release 0.1: working assessment-to-remediation vertical slice, with explicitly limited scope.** This repository does not claim complete ECC/PDPL coverage, production readiness, certification, regulatory approval or legal advice. Governance and privacy are currently **read-only baseline registries**, not finished workflow modules.
+**Release 0.2: connected enterprise simulation with controlled operational workflows.** This repository does not claim complete ECC/PDPL coverage, production readiness, certification, regulatory approval or legal advice. Governance, policy, privacy, supplier, incident, continuity, training, gap, remediation and evidence-metadata records now use versioned workflows and approval history; specialized legal decision engines remain intentionally disabled.
 
 ![Arabic command center](docs/screenshots/dashboard-ar.png)
 
 ## What works
 
-* Eight server-enforced roles, Argon2id password hashing, opaque sessions, CSRF header and origin checks.
+* Ten server-enforced roles, Argon2id password hashing, opaque sessions, CSRF header and origin checks.
 * Selected NCA ECC references with publication metadata, exact IDs, verification states and interpretation caveats.
 * Create assessment → record rationale → attach encrypted evidence → submit → independent review → approval/return.
 * Register linked risk and finding → assign action → progress remediation → reassess → independent retest → close.
@@ -22,8 +22,10 @@ Dark mode defaults to midnight navy with restrained violet and gold accents insp
 * Encrypted evidence with SHA-256 integrity verification, freshness dates and authenticated download.
 * Tamper-evident activity chain, scoped management JSON, UTF-8 CSV, and authorized audit ZIP containing evidence and manifest hashes.
 * Arabic/English navigation, RTL/LTR, responsive tables and risk heatmap calculated from persisted data.
+* Sixteen policies with operational procedures, checklists, evidence expectations, compliance tests, acknowledgements and distinct effectiveness states.
+* Connected governance, privacy, vendor, incident, continuity, training, gap and remediation records with lifecycle transitions and separation of duties.
 
-The seed provides **5 departments, 25 information assets, 40 risks, 10 vendors, 5 selected ECC references, 5 baseline assessments, 5 policy drafts, 5 incomplete processing records and 1 discovery case**. Fictional records are synthetic scenarios, not actual regulatory findings.
+The deterministic seed provides **8 departments, 25 information assets, 18 risks, 5 vendors, 30 controls, 30 baseline assessments, 16 policies, 12 gaps, 12 remediation actions, 10 evidence-metadata records, 8 processing activities, 3 incidents, 3 critical services and 2 audit exercises**. A 20-record fictional employee sample represents the 150-person organization profile; sample metrics never pretend to cover 150 records. Fictional records are synthetic scenarios, not actual regulatory findings.
 
 ## Run on Windows
 
@@ -79,7 +81,7 @@ flowchart LR
   API --> OUT[Management JSON / CSV / audit ZIP]
 ```
 
-Stack: React 19, TypeScript, Vite, TanStack Query, React Router, Recharts, plain CSS design tokens; Python 3.12, FastAPI, Pydantic, SQLAlchemy, Alembic, PostgreSQL; Docker Compose; pytest, Vitest, Playwright and GitHub Actions. Single organization per deployment. No tenant-isolation claim. [Architecture, ERD and data flow](docs/ARCHITECTURE.md) · [Threat model and RBAC](docs/SECURITY.md).
+Stack: React 19, TypeScript, Vite, TanStack Query, React Router, Recharts, plain CSS design tokens; Python 3.12, FastAPI, Pydantic, SQLAlchemy, Alembic, PostgreSQL; Docker Compose; pytest, Vitest, Playwright and GitHub Actions. Single organization per deployment. No tenant-isolation claim. [Architecture, ERD and data flow](docs/ARCHITECTURE.md) · [Threat model and RBAC](docs/SECURITY.md) · [live implementation checklist](docs/IMPLEMENTATION_CHECKLIST.md).
 
 ## Regulatory integrity
 
@@ -117,7 +119,7 @@ Browser tests require running native services and mutate the demo by adding an a
 
 ## حدود النطاق
 
-هذه النسخة تنفذ مساراً عملياً للتقييم والأدلة والمخاطر والفجوات والمعالجة والمراجعة المستقلة والتصدير. سجلات الخصوصية والسياسات أساسية وللقراءة فقط. لم يُنفذ بعد سير طلبات أصحاب البيانات أو الإخطار بالتسرب أو تقييم النقل أو اعتماد السياسات، ولم تُفعّل مهل نظامية غير متحقق منها. لا تستخدم بيانات شخصية حقيقية. خطوات التشغيل والتجربة موثقة أعلاه، وكلمة المرور تُنشأ محلياً ولا تُنشر في المستودع.
+تنفذ هذه النسخة مسارات عملية للتقييم والأدلة والمخاطر والفجوات والمعالجة والمراجعة المستقلة واعتماد السياسات والسجلات التشغيلية والتصدير. سجلات الخصوصية قابلة للإنشاء والمراجعة والاعتماد، لكن قرارات المسوغ النظامي ومهل طلبات أصحاب البيانات والإشعار بالتسرب وصحة النقل الدولي لا تُستنتج آلياً وتظل بحاجة إلى مراجعة قانونية موثقة. لا تستخدم بيانات شخصية حقيقية. خطوات التشغيل والتجربة موثقة أعلاه، وكلمة المرور تُنشأ محلياً ولا تُنشر في المستودع.
 
 ## Licensing
 

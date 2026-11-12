@@ -13,7 +13,6 @@ from .db import (
     Finding,
     WorkItem,
     Relationship,
-    Approval,
     PolicyAcknowledgement,
     now,
 )

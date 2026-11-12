@@ -14,7 +14,7 @@ The initial matrix multiplies ordinal likelihood (1–5) by ordinal impact (1–
 
 These are synthetic organizational criteria. They need business-specific financial, service, safety, privacy and reputational thresholds before real use. The baseline configuration stores definitions, but in-app configuration editing is not yet implemented.
 
-Bands: 1–5 Low; 6–11 Moderate; 12–19 High; 20–25 Critical. Demo appetite: 9, an organization choice rather than a regulatory threshold. Example: inherent L=4, I=5 → 20 Critical. After tested mitigation, an analyst might independently judge residual L=2, I=4 → 8 Moderate. The rationale must explain why; the system does not infer effectiveness from those numbers.
+Bands: 1–4 Low; 5–9 Moderate; 10–16 High; 17–25 Critical. Demo appetite: 9, an organization choice rather than a regulatory threshold. Example: inherent L=4, I=5 → 20 Critical. After tested mitigation, an analyst might independently judge residual L=2, I=4 → 8 Moderate. The rationale must explain why; the system does not infer effectiveness from those numbers.
 
 Risk creation stores inherent rationale, control-effectiveness rationale, residual rationale, owner and assessment timestamp. The initial model uses narrative rationales; separate evidence attachments and dated effectiveness observations per risk are planned. Do not claim the seeded scenarios are evidenced risk judgments. Risk acceptance is pending until an independent GRC Manager approves with a future review date. The API forbids owner self-acceptance. Expiration date is persisted; automatic expiration/escalation is not yet implemented.
 
