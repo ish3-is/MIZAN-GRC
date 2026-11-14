@@ -6,12 +6,12 @@ jobs:
   backend:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - run: pip install -r backend/requirements.txt ruff==0.17.1
-      - run: ruff check backend scripts/verify-register.py --select F
+      - run: ruff check backend scripts --select F
       - run: python scripts/verify-register.py
       - run: pytest backend/tests -q
   frontend:
@@ -20,8 +20,8 @@ jobs:
       run:
         working-directory: frontend
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: '24'
           cache: npm

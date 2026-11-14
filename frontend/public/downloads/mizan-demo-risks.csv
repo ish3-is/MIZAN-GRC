@@ -1,0 +1,19 @@
+﻿id,title,department,inherent,residual,treatment
+85,Unapproved access rights · 01,Executive Management,1,1,mitigate
+86,Sensitive data exposure · 02,Human Resources,8,4,mitigate
+87,Missing processing inventory · 03,Finance,6,4,mitigate
+88,Supplier assurance gap · 04,Information Technology,20,15,mitigate
+89,Unavailable recovery evidence · 05,Cybersecurity,15,12,mitigate
+90,Unapproved access rights · 06,Sales,1,1,mitigate
+91,Sensitive data exposure · 07,Operations,8,4,mitigate
+92,Missing processing inventory · 08,Legal & Privacy,6,4,mitigate
+93,Supplier assurance gap · 09,Executive Management,20,15,mitigate
+94,Unavailable recovery evidence · 10,Human Resources,15,12,mitigate
+95,Unapproved access rights · 11,Finance,1,1,mitigate
+96,Sensitive data exposure · 12,Information Technology,8,4,mitigate
+97,Missing processing inventory · 13,Cybersecurity,6,4,mitigate
+98,Supplier assurance gap · 14,Sales,20,15,mitigate
+99,Unavailable recovery evidence · 15,Operations,15,12,mitigate
+100,Unapproved access rights · 16,Legal & Privacy,1,1,mitigate
+101,Sensitive data exposure · 17,Executive Management,8,4,mitigate
+102,Missing processing inventory · 18,Human Resources,6,4,mitigate

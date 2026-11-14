@@ -1,8 +1,15 @@
+import { demoApi } from "./demo-api";
+
+export const isDemoMode = import.meta.env.VITE_DEMO_MODE === "true";
+export const publicAsset = (path: string) =>
+  `${import.meta.env.BASE_URL}${path.replace(/^\//, "")}`;
+
 export async function api<T = unknown>(
   path: string,
   method = "GET",
   data?: unknown,
 ): Promise<T> {
+  if (isDemoMode) return demoApi<T>(path, method, data);
   const form = data instanceof FormData;
   const response = await fetch("/api" + path, {
     method,

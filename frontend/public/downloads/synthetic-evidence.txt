@@ -1,0 +1,2 @@
+MIZAN GRC synthetic evidence placeholder.
+The GitHub Pages showcase is read-only and contains no uploaded evidence or real personal data. Run the FastAPI backend locally for encrypted evidence workflows.

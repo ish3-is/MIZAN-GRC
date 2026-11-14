@@ -4,7 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="theme-color" content="#0b1020" />
-    <script src="/theme-init.js"></script>
+    <link rel="icon" href="%BASE_URL%brand/madar-academy.png" />
+    <script>
+      try {
+        document.documentElement.dataset.theme =
+          localStorage.getItem("mizan-theme") === "light" ? "light" : "dark";
+      } catch {
+        document.documentElement.dataset.theme = "dark";
+      }
+    </script>
     <title>ميزان | MIZAN GRC — أحد أعمال مدار</title>
   </head>
   <body>
